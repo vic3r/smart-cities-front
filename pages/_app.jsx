@@ -1,8 +1,9 @@
-import App, {Container} from 'next/app'
-import React from 'react'
-import Header from 'next/head'
+import App, {Container} from 'next/app';
+import React from 'react';
+import Header from 'next/head';
+import { createGlobalStyle } from 'styled-components';
 
-class RoommatesApp extends App {
+class MibiciApp extends App {
   render () {
     const {Component, pageProps} = this.props
     return (
@@ -10,10 +11,19 @@ class RoommatesApp extends App {
         <Header>
           <title>Mi Bici</title>
         </Header>
+        <GlobalStyle />
         <Component {...pageProps} />
       </Container>
     )
   }
 }
 
-export default RoommatesApp
+MibiciApp.displayName = 'MibiciApp';
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    font-family: 'Oxygen', sans-serif;
+  }
+`;
+
+export default MibiciApp
