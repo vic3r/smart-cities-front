@@ -16,8 +16,20 @@ export const LoginImg = styled(Grid.Column)`
     background-size: cover;
     background-attachment: fixed;
   }
-`
 
+  ${media.lessThan('large')`
+		&&&&& {
+			display: none;
+		}
+  `}
+`
+export const FormColumn = styled(Grid.Column)`
+  ${media.lessThan('large')`
+    &&&&& {
+      width: 100%;
+    }
+  `}
+`
 export const LoginGrid = styled(Grid)`
   &.ui.grid {
     min-height: 100vh;

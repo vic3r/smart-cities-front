@@ -8,7 +8,8 @@ import {
   LogoImage,
   InputContainer,
   ForgotContainer,
-  LoginButton,
+	LoginButton,
+	FormColumn,
   Footer,
   FooterLinks
 } from './styles';
@@ -29,7 +30,7 @@ class Login extends PureComponent {
 		return (
 			<LoginGrid columns={2}>
 				<LoginImg />
-				<Grid.Column>
+				<FormColumn>
 					<FormContainer>
 						<LogoImage src="../../../static/images/mibici_logo.png" />
 						<Form>
@@ -61,7 +62,7 @@ class Login extends PureComponent {
 							<LoginButton className="login">Iniciar Sesión</LoginButton>
 						</Form>
 					</FormContainer>
-				</Grid.Column>
+				</FormColumn>
       </LoginGrid>
 		)
 	}
