@@ -1,25 +1,26 @@
-import React from 'react'
-import Document, { Head, Main, NextScript } from 'next/document'
-import { ServerStyleSheet } from 'styled-components'
+import React from 'react';
+import Document, { Head, Main, NextScript } from 'next/document';
+import { ServerStyleSheet } from 'styled-components';
 
-class HMXDocument extends Document {
+class RDocument extends Document {
   static getInitialProps({ renderPage }) {
-    const sheet = new ServerStyleSheet()
-    const page = renderPage(App => props => sheet.collectStyles(<App {...props} />))
-    const styleTags = sheet.getStyleElement()
-    return { ...page, styleTags }
+    const sheet = new ServerStyleSheet();
+    const page = renderPage(App => props => sheet.collectStyles(<App {...props} />));
+    const styleTags = sheet.getStyleElement();
+    return { ...page, styleTags };
   }
 
   render() {
-    const { styleTags } = this.props
+    const { styleTags } = this.props;
     return (
-      <html>
+      <html lang="en">
         <Head>
           {styleTags}
-          <meta
-            name="viewport"
-            content="initial-scale=1, width=device-width"
-            key="viewport"
+          <meta name="viewport" content="initial-scale=1, width=device-width" key="viewport" />
+          <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon" />
+          <link
+            rel="stylesheet"
+            href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"
           />
         </Head>
         <body>
@@ -27,8 +28,10 @@ class HMXDocument extends Document {
           <NextScript />
         </body>
       </html>
-    )
+    );
   }
 }
 
-export default HMXDocument
+RDocument.displayName = 'RDocument';
+
+export default RDocument;
