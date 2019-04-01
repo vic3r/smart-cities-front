@@ -23,23 +23,18 @@ class Home extends PureComponent {
 					</Grid.Row>
 					<Grid.Row>
 						<Grid.Column mobile={15} computer={15}>
-							<Grid centered columns={4}>
-								<Grid.Column textAlign="center" mobile={15} computer={4}>
+							<Grid centered columns={3}>
+								<Grid.Column textAlign="center" mobile={15} computer={5}>
 									<LocationButton primary>
 										Guadalajara
 									</LocationButton>
 								</Grid.Column>
-								<Grid.Column textAlign="center" mobile={15} computer={4}>
+								<Grid.Column textAlign="center" mobile={15} computer={5}>
 									<LocationButton primary>
 										Zapopan
 									</LocationButton>
 								</Grid.Column>
-								<Grid.Column textAlign="center" mobile={15} computer={4}>
-									<LocationButton primary>
-										Tonalá
-									</LocationButton>
-								</Grid.Column>
-								<Grid.Column textAlign="center" mobile={15} computer={4}>
+								<Grid.Column textAlign="center" mobile={15} computer={5}>
 									<LocationButton primary>
 										Tlaquepaque
 									</LocationButton>
