@@ -12,6 +12,7 @@ export const NavMenu = styled(Menu)`
 
 	&.ui.secondary.pointing.menu a.mb-nav.item:hover {
 		color: #FFFFFF;
+		border-bottom-color: #FFFFFF;
 	}
 `
 export const NavItem = styled(Menu.Item)`
