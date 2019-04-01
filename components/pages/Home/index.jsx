@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Grid, Image } from 'semantic-ui-react';
 import Navbar from '../../shared/Navbar';
-import { MainContainer, Locations, LocationButton } from './styles'
+import { MainContainer, Locations, LocationButton } from './styles';
 
 class Home extends PureComponent {
 	render() {
