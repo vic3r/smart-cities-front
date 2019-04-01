@@ -2322,6 +2322,13 @@ concat-stream@^1.5.0:
     readable-stream "^2.2.2"
     typedarray "^0.0.6"
 
+config@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/config/-/config-3.0.1.tgz#c3118e2eb45fdfd135277339f87e2492559cb147"
+  integrity sha512-TBNrrk2b6AybUohqXw2AydglFBL9b/+1GG93Di6Fm6x1SyVJ5PYgo+mqY2X0KpU9m0PJDSbFaC5H95utSphtLw==
+  dependencies:
+    json5 "^1.0.1"
+
 consola@^1.4.3:
   version "1.4.5"
   resolved "https://registry.yarnpkg.com/consola/-/consola-1.4.5.tgz#09732d07cb50af07332e54e0f42fafb92b962c4a"
@@ -4435,6 +4442,13 @@ neo-async@^2.5.0:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.0.tgz#b9d15e4d71c6762908654b5183ed38b753340835"
   integrity sha512-MFh0d/Wa7vkKO3Y3LlacqAEeHK0mckVqzDieUKTT+KGxi+zIpeVsFxymkIiRpbpDziHc290Xr9A1O4Om7otoRA==
 
+next-routes@^1.4.2:
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/next-routes/-/next-routes-1.4.2.tgz#736a382579a792ea69f35ae70b449acdfefa7944"
+  integrity sha512-1Ljs0BEV9IGcJLKxC/WZUtmftSvmkY6DlI8fVs8dClCoR82QRzBGRka/L/XB76wE5814MMeP9qVJYQil0FE9QQ==
+  dependencies:
+    path-to-regexp "^2.1.0"
+
 next@^7.0.3:
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/next/-/next-7.0.3.tgz#52874948929ba616fd83a882f5653d21e16d5e58"
@@ -4903,6 +4917,11 @@ path-to-regexp@2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-2.1.0.tgz#7e30f9f5b134bd6a28ffc2e3ef1e47075ac5259b"
   integrity sha512-dZY7QPCPp5r9cnNuQ955mOv4ZFVDXY/yvqeV7Y1W2PJA3PEFcuow9xKFfJxbBj1pIjOAP+M2B4/7xubmykLrXw==
+
+path-to-regexp@^2.1.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-2.4.0.tgz#35ce7f333d5616f1c1e1bfe266c3aba2e5b2e704"
+  integrity sha512-G6zHoVqC6GGTQkZwF4lkuEyMbVOjoBKAEybQUypI1WTkqinCOrq2x6U2+phkJ1XsEMTy4LjtwPI7HW+NVrRR2w==
 
 path-type@^2.0.0:
   version "2.0.0"

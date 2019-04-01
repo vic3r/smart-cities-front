@@ -1,30 +1,27 @@
-const express = require("express");
-const next = require("next");
+const config = require('config');
+const express = require('express');
+const next = require('next');
+const routes = require('../routes');
 
-const dev = process.env.NODE_ENV !== "production";
+const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
-const handle = app.getRequestHandler();
+
+const handler = routes.getRequestHandler(app, ({req, res, route, query}) => {
+  app.render(req, res, route.page, query);
+});
 
 app
   .prepare()
   .then(() => {
     const server = express();
+    const { port } = config.api;
 
-    // Example on how to render pretty links
-    // server.get('/p/:id', (req, res) => {
-    //   const actualPage = '/post';
-    //   const queryParams = { title: req.params.id };
-    //   app.render(req, res, actualPage, queryParams);
-    // });
-
-    server.get("*", (req, res) => {
-      return handle(req, res);
-    });
-
-    server.listen(3000, err => {
+    server
+      .use(handler)
+      .listen(port, err => {
       if (err) throw err;
       // eslint-disable-next-line no-console
-      console.log("> Ready on http://localhost:3000");
+      console.log(`> Ready on http://localhost:${port}`);
     });
   })
   .catch(ex => {
