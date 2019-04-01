@@ -3,6 +3,9 @@ const express = require('express');
 const next = require('next');
 const routes = require('../routes');
 
+const Logger = require('../utils/Logger');
+
+const logger = new Logger(__filename);
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 
@@ -21,11 +24,11 @@ app
       .listen(port, err => {
       if (err) throw err;
       // eslint-disable-next-line no-console
-      console.log(`> Ready on http://localhost:${port}`);
+      logger.debug(`> Ready on http://localhost:${port}`);
     });
   })
   .catch(ex => {
     // eslint-disable-next-line no-console
-    console.error(ex.stack);
+    logger.error(ex.stack);
     process.exit(1);
   });
