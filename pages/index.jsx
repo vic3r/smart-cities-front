@@ -1,11 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
+import Home from '../components/pages/Home'
 
-const Title = styled.h1`
-  color: red;
-  font-size: 50px;
-`
-const HomePage = () => <Title>MiBici </Title>;
+const HomePage = () => <Home />;
 
 HomePage.displayName = 'HomePage';
 
