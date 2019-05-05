@@ -1,5 +1,5 @@
 import React from 'react';
-import Location from '../../components/pages/Location'
+import Location from '../components/pages/Location'
 
 const LocationPage = () => <Location />;
 

@@ -53,15 +53,17 @@ export const NumContainer = styled(Card.Content)`
     font-size: 3rem;
   }
 `
-export const TimeContainer = styled(Grid.Column)`
+export const HeaderContainer = styled(Grid.Column)`
   {
     padding: 1.4rem 2rem;
     font-weight: 600;
     color: #383737;
     margin-top: 0.8rem;
     font-size: 1.3rem;
-    background-color: #4e4e4e4a;
+  }
 
+  &.gray-bg {
+    background-color: #4e4e4e4a;
   }
 `
 export const SideBar = styled(Grid.Column)`
@@ -88,7 +90,7 @@ export const NegihborhoodItem = styled.div`
     cursor: pointer;
   }
 
-  &:hover {
+  &:hover, &.sidebar-active {
     background-color: #90161b;
   }
 `

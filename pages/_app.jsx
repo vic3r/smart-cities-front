@@ -21,12 +21,12 @@ class MibiciApp extends App {
 MibiciApp.displayName = 'MibiciApp';
 
 const GlobalStyle = createGlobalStyle`
-  body, .ui.menu {
+  .ui.menu {
     font-family: 'Oxygen', sans-serif;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+  body, h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', serif;
   }
 `;
 
