@@ -22,6 +22,7 @@ export const MainContainer = styled(Grid)`
 export const DataContainer = styled(Grid.Column)`
   & {
     background-color: #EBEBEB;
+    margin-left: 25%;
   }
 `
 export const DataCard = styled(Card)`
@@ -66,13 +67,19 @@ export const HeaderContainer = styled(Grid.Column)`
     background-color: #4e4e4e4a;
   }
 `
-export const SideBar = styled(Grid.Column)`
+export const SideBar = styled.div`
   {
     background-color: #B12429;
     color: #FFFFFF;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 1px;
+    width: 25%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    overflow-y: auto;
+    margin-top: 3rem;
   }
 
   >div {

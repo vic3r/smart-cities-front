@@ -6,19 +6,27 @@ import moment from 'moment';
 import { SideBar, LocationName, MainContainer, NegihborhoodItem, DataContainer, HeaderContainer, IconContainer,
   DataCard, NumContainer } from './styles';
 
-const neighborhoods = ['Providencia', 'Puerta de Hierro', 'La Estancia', 'Jardín Real', 'Colinas de San Javier',
-  'La Calma', 'Arboledas', 'Loma Bonita', 'Ciudad del Sol'];
+const capitalize = string => string.charAt(0).toUpperCase() + string.slice(1);
 
 class Location extends PureComponent {
 
   state = {
-    currentNeighborhood: -1,
+    currentStationIdx: -1,
+    currentStation: {},
+    locationStations: [],
+    locationName: '',
     date: ''
   };
 
   componentDidMount() {
     this.updateTime();
     this.interval = setInterval(this.updateTime, 30000)
+    const { router } = this.props;
+    const locationName = capitalize(router.asPath.substring(1));
+
+    fetch(`${process.env.API_URL}stations/zone/${locationName}`)
+      .then(response => response.json())
+      .then(data => this.setState({ locationName, locationStations: data[`stations in ${locationName}`] }));
   };
 
   componentWillUnmount() {
@@ -30,46 +38,46 @@ class Location extends PureComponent {
     this.setState({ date })
   };
 
-  handleItemClick = index => this.setState({ currentNeighborhood: index })
+  handleItemClick = index => {
+    const { locationStations } = this.state;
+    this.setState({ currentStationIdx: index, currentStation: locationStations[index] });
+  }
 
 	render() {
-    const { currentNeighborhood, date } = this.state;
-    const { router } = this.props;
-    const locationName = router.asPath.substring(1);
+    const { currentStationIdx, date, locationName, locationStations, currentStation } = this.state;
 
 		return (
 			<React.Fragment>
         <Navbar />
         <MainContainer>
-          <SideBar mobile={16} tablet={5} computer={3}>
+          <SideBar mobile={16} tablet={5} computer={4}>
             <LocationName>
               <h2>
                 {locationName}
               </h2>
             </LocationName>
-            { neighborhoods.map((item, index) => (
+            { locationStations.map((item, index) => (
               <NegihborhoodItem 
-                key={index} name={item} 
-                value={index} 
+                key={item.station_id}
                 onClick={() => this.handleItemClick(index)}
-                className={currentNeighborhood == index ? 'sidebar-active' : ''}
+                className={currentStationIdx == index ? 'sidebar-active' : ''}
               >
-                {item}
+                {item.name}
               </NegihborhoodItem>
             )) }
           </SideBar>
-          <DataContainer mobile={16} tablet={11} computer={13}>
+          <DataContainer mobile={16} tablet={11} computer={12}>
             <Grid.Row centered columns={1}>
               <HeaderContainer className="gray-bg" mobile={16} computer={3}>
                 { date }
               </HeaderContainer>
             </Grid.Row>
             {
-              currentNeighborhood >= 0 ? ( 
+              currentStationIdx >= 0 ? ( 
                 <React.Fragment>
                   <Grid.Row>
                     <HeaderContainer>
-                      { neighborhoods[currentNeighborhood] }
+                      { currentStation.name }
                     </HeaderContainer>
                   </Grid.Row>
                   <Grid columns={2}>
@@ -77,14 +85,14 @@ class Location extends PureComponent {
                       <DataCard>
                         <Card.Content>
                           <Card.Header>
-                            Available
+                            Bikes Available
                             <IconContainer className="green">
                               <i className="fas fa-bicycle"></i>
                             </IconContainer>
                           </Card.Header>
                         </Card.Content>
                         <NumContainer>
-                          6/12
+                          {currentStation.bikes_available}/{currentStation.capacity}
                         </NumContainer>
                       </DataCard>
                     </Grid.Column>
@@ -99,7 +107,7 @@ class Location extends PureComponent {
                           </Card.Header>
                         </Card.Content>
                         <NumContainer>
-                          6/12
+                        {currentStation.docks_available}/{currentStation.capacity}
                         </NumContainer>
                       </DataCard>
                     </Grid.Column>
