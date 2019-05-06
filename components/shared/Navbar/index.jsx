@@ -21,7 +21,7 @@ const Navbar = ( props ) => {
 						Home
 					</NavItem>
 				</Link>
-				<Link route="home">
+				<Link route="map">
 					<NavItem 
 						name="map" 
 						className="mb-nav"
